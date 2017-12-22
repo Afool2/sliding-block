@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        div{
+            height: 100px;
+            width: 200px;
+            margin-top: 2px;
+            background-color: yellow;
+            transform-origin: 100% 100%;
+            position: relative;
+            font-size: 50px;
+            text-align: center;
+            line-height: 100px;
+        }
+        button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <button>go</button>
+    
+    <script src="jq.js"></script>
+    <script type="text/javascript">
+        var cl = console.log;
+        
+        $('button').click(action);
+        var flag = false;
+        function action() {
+            var i=0;
+            flag = !flag;// 决定往左或往右移动
+            $div.each(function() {
+                var $this = $(this);
+                setTimeout(function() {
+                    $this.stop().animate({
+                        left: flag ? '70%' : 0
+                    }, 1000); // 1000为滑块从一端移到另一端的时间
+                }, i++ * 1500); //150为各滑块动作的间隔时间
+                
+            });
+        }
+
+    </script>
+</body>
+</html>
